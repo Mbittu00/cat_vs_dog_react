@@ -22,9 +22,9 @@ function App() {
   reader.onload=async(p)=>{
    let ppp=p.target.result
    let img=await Image.load(ppp)
-   let size=img.resize({width:256,height:256})
+   let size=img.resize({width:300,height:300})
     let ten=tf.browser.fromPixels(size)
-   ten=ten.reshape([1,256,256,3])
+   ten=ten.reshape([1,300,300,3])
    let tff=tf.div(ten,255)
    let pre=model.predict(ten)
    let val=pre.dataSync()[0]
